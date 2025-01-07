@@ -1,3 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: hsl(0, 0%, 100%);
+  --bg-accent: hsl(0, 0%, 80%);
+  --primary-color: hsl(0, 0%, 0%);
+  --secondary-color: hsl(0, 0%, 20%);
+  --bg-gradient: linear-gradient(-45deg, hsl(0, 0%, 85%), hsl(0, 0%, 80%));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: hsl(0, 0%, 0%);
+    --bg-accent: hsl(0, 0%, 20%);
+    --primary-color: hsl(0, 0%, 100%);
+    --secondary-color: hsl(0, 0%, 80%);
+    --bg-gradient: linear-gradient(-45deg, hsl(0, 0%, 20%), hsl(0, 0%, 15%));
+  }
+}
+
+.bg {
+  background-color: var(--bg-color);
+}
+
+.bg-gradient {
+  background: var(--bg-gradient);
+}
+
+.color-primary {
+  color: var(--primary-color);
+}
+
+.color-secondary {
+  color: var(--secondary-color);
+}
+
+.border-color {
+  border-color: var(--bg-accent);
+}
+
+.body-bold {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -2%;
+}
+
+.body-regular {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+}
