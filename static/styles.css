@@ -5,7 +5,9 @@
 
 :root {
   --bg-color: hsl(0, 0%, 100%);
-  --bg-accent: hsl(0, 0%, 80%);
+  --bg-transparent: hsla(0, 0%, 100%, 70%);
+  --bg-accent: hsl(0, 0%, 90%);
+  --transparent-accent: hsla(0, 0%, 90%, 70%);
   --primary-color: hsl(0, 0%, 0%);
   --secondary-color: hsl(0, 0%, 20%);
   --bg-gradient: linear-gradient(135deg, hsl(0, 0%, 95%), hsl(0, 0%, 90%));
@@ -14,7 +16,9 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: hsl(0, 0%, 0%);
+    --bg-transparent: hsla(0, 0%, 0%, 70%);
     --bg-accent: hsl(0, 0%, 20%);
+    --transparent-accent: hsla(0, 0%, 20%, 70%);
     --primary-color: hsl(0, 0%, 100%);
     --secondary-color: hsl(0, 0%, 80%);
     --bg-gradient: linear-gradient(135deg, hsl(0, 0%, 20%), hsl(0, 0%, 15%));
@@ -35,6 +39,12 @@
 
 .bg-gradient {
   background: var(--bg-gradient);
+}
+
+.bg-crystal {
+  background-color: var(--bg-transparent);
+  backdrop-filter: saturate(180%) blur(33px);
+  border-color: var(--transparent-accent);
 }
 
 .color-primary {

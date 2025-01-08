@@ -1,25 +1,70 @@
-import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
+// import { useSignal } from "@preact/signals";
+// import Counter from "../islands/Counter.tsx";
+import { Event } from "../components/Event.tsx";
+import { Header } from "../components/Header.tsx";
+import { ProfileIcon } from "../components/ProfileIcon.tsx";
 
 export default function Home() {
-  const count = useSignal(3);
-  return (
-    <div class="px-4 py-8 mx-auto bg-[#86efac]">
-      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-        <img
-          class="my-6"
-          src="/logo.svg"
-          width="128"
-          height="128"
-          alt="the Fresh logo: a sliced lemon dripping with juice"
-        />
-        <h1 class="text-4xl font-bold">Welcome to Fresh</h1>
-        <p class="my-4">
-          Try updating this message in the
-          <code class="mx-2">./routes/index.tsx</code> file, and refresh.
-        </p>
-        <Counter count={count} />
+  const concerts = [
+    {
+      title: "Audien Live @ The Ave",
+      host: "The Ave Live",
+      location: "The Ave, Philadelphia",
+      time: new Date(2025, 0, 17, 21, 0),
+      thumbnail: "/images/audien.png"
+    },
+    {
+      title: "Alan Walker @ Echostage",
+      host: "Insomniac Productions",
+      location: "Echostage, Washington DC",
+      time: new Date(2025, 0, 31, 21, 0),
+      thumbnail: "/images/alan-walker.png"
+    },
+    {
+      title: "Odd Mob Live @ The Ave",
+      host: "The Ave Live",
+      location: "The Ave, Philadelphia",
+      time: new Date(2025, 1, 1, 21, 0),
+      thumbnail: "/images/odd-mob.png"
+    },
+    {
+      title: "Gryffin @ Echostage",
+      host: "Insomniac Productions",
+      location: "Echostage, Washington DC",
+      time: new Date(2025, 1, 14, 21, 0),
+      thumbnail: "/images/gryffin.png"
+    },
+    {
+      title: "Crankdat Live @ The Ave",
+      host: "The Ave Live",
+      location: "The Ave, Philadelphia",
+      time: new Date(2025, 1, 15, 21, 0),
+      thumbnail: "/images/crankdat.png"
+    },
+    {
+      title: "Vintage Culture Live @ NOTO",
+      host: "NOTO Philly",
+      location: "NOTO, Philadelphia",
+      time: new Date(2025, 1, 21, 21, 0),
+      thumbnail: "/images/vintage-culture.jpg"
+    },
+  ];
+
+  return(
+    <>
+      <Header>
+        <div class="body-bold color-primary w-full text-3xl">Discover</div>
+        <ProfileIcon />
+      </Header>
+      <div class="bg static z-0" style="margin-top: calc(4rem + env(safe-area-inset-top)); margin-bottom: calc(3rem + env(safe-area-inset-bottom)); overflow-y: scroll; -webkit-overflow-scrolling: touch;">
+        <div class="pt-6 mb-6">
+          {
+            concerts.map(({ title, host, location, time, thumbnail }) => (
+              <Event title={title} host={host} location={location} time={time} thumbnail={thumbnail} />
+            ))
+          }
+        </div>
       </div>
-    </div>
+    </>
   );
 }
