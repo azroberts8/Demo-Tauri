@@ -4,6 +4,8 @@ import { Header } from "../components/Header.tsx";
 import { ProfileIcon } from "../components/ProfileIcon.tsx";
 import { NavTabBar } from "../components/NavTabBar.tsx";
 import { NavTabOption } from "../islands/NavTabOption.tsx";
+import { Page } from "../islands/Page.tsx";
+import { Body } from "../components/Body.tsx";
 
 export default function Home() {
   const concerts = [
@@ -55,23 +57,37 @@ export default function Home() {
 
   return(
     <>
-      <Header>
-        <div class="body-bold color-primary w-full text-3xl">Discover</div>
-        <ProfileIcon />
-      </Header>
-      <div class="bg static z-0" style="margin-top: calc(4rem + env(safe-area-inset-top)); margin-bottom: calc(3rem + env(safe-area-inset-bottom)); overflow-y: scroll; -webkit-overflow-scrolling: touch;">
-        <div class="pt-6 mb-6">
-          {
-            concerts.map(({ title, host, location, time, thumbnail }) => (
-              <Event title={title} host={host} location={location} time={time} thumbnail={thumbnail} />
-            ))
-          }
-        </div>
-      </div>
+      <Page navid="discover" activeTab={selectedTab}>
+        <Header>
+          <div class="body-bold color-primary w-full text-3xl">Discover</div>
+          <ProfileIcon />
+        </Header>
+        <Body>
+          <div class="">
+            {
+              concerts.map(({ title, host, location, time, thumbnail }) => (
+                <Event title={title} host={host} location={location} time={time} thumbnail={thumbnail} />
+              ))
+            }
+          </div>
+        </Body>
+      </Page>
+      <Page navid="rust" activeTab={selectedTab}>
+        <Header>
+          <div class="body-bold color-primary w-full text-3xl">Rust Example</div>
+          <ProfileIcon />
+        </Header>
+      </Page>
+      <Page navid="stocks" activeTab={selectedTab}>
+        <Header>
+          <div class="body-bold color-primary w-full text-3xl">Stocks</div>
+          <ProfileIcon />
+        </Header>
+      </Page>
       <NavTabBar>
-        <NavTabOption id="discover" activeTab={selectedTab}>explore</NavTabOption>
-        <NavTabOption id="rust" activeTab={selectedTab}>terminal</NavTabOption>
-        <NavTabOption id="stocks" activeTab={selectedTab}>trending_up</NavTabOption>
+        <NavTabOption navid="discover" activeTab={selectedTab}>explore</NavTabOption>
+        <NavTabOption navid="rust" activeTab={selectedTab}>terminal</NavTabOption>
+        <NavTabOption navid="stocks" activeTab={selectedTab}>trending_up</NavTabOption>
       </NavTabBar>
     </>
   );

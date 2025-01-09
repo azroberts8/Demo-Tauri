@@ -9,7 +9,7 @@ export default function App({ Component }: PageProps) {
         <title>Fresh Tauri Example</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body class="bg">
+      <body class="bg h-screen">
         <Component />
       </body>
     </html>
