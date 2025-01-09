@@ -10,6 +10,7 @@
   --transparent-accent: hsla(0, 0%, 90%, 70%);
   --primary-color: hsl(0, 0%, 0%);
   --secondary-color: hsl(0, 0%, 20%);
+  --tertiary-color: hsl(0, 0%, 45%);
   --bg-gradient: linear-gradient(135deg, hsl(0, 0%, 95%), hsl(0, 0%, 90%));
 }
 
@@ -21,6 +22,7 @@
     --transparent-accent: hsla(0, 0%, 20%, 70%);
     --primary-color: hsl(0, 0%, 100%);
     --secondary-color: hsl(0, 0%, 80%);
+    --tertiary-color: hsl(0, 0%, 55%);
     --bg-gradient: linear-gradient(135deg, hsl(0, 0%, 20%), hsl(0, 0%, 15%));
   }
 }
@@ -53,6 +55,10 @@
 
 .color-secondary {
   color: var(--secondary-color);
+}
+
+.color-tertiary {
+  color: var(--tertiary-color);
 }
 
 .border-color {

@@ -1,8 +1,9 @@
-// import { useSignal } from "@preact/signals";
-// import Counter from "../islands/Counter.tsx";
+import { useSignal } from "@preact/signals";
 import { Event } from "../components/Event.tsx";
 import { Header } from "../components/Header.tsx";
 import { ProfileIcon } from "../components/ProfileIcon.tsx";
+import { NavTabBar } from "../components/NavTabBar.tsx";
+import { NavTabOption } from "../islands/NavTabOption.tsx";
 
 export default function Home() {
   const concerts = [
@@ -50,6 +51,8 @@ export default function Home() {
     },
   ];
 
+  const selectedTab = useSignal("discover");
+
   return(
     <>
       <Header>
@@ -65,6 +68,11 @@ export default function Home() {
           }
         </div>
       </div>
+      <NavTabBar>
+        <NavTabOption id="discover" activeTab={selectedTab}>explore</NavTabOption>
+        <NavTabOption id="rust" activeTab={selectedTab}>terminal</NavTabOption>
+        <NavTabOption id="stocks" activeTab={selectedTab}>trending_up</NavTabOption>
+      </NavTabBar>
     </>
   );
 }
